@@ -2215,7 +2215,8 @@ if [[ $ffmpeg != no ]]; then
             do_patch "https://raw.githubusercontent.com/OpenVisualCloud/SVT-VP9/master/ffmpeg_plugin/master-0001-Add-ability-for-ffmpeg-to-run-svt-vp9.patch" am ||
                 do_removeOption --enable-libsvtvp9
         fi
-
+	do_patch "https://gist.github.com/blurbdust/5fa38b6e854d4cfe251a466131bd9b0c/raw/69287eb13d88b86b1cda06016c6438b86707133d/fix-dshow-requested-variables.patch" am ||
+ 
         enabled libsvthevc || do_removeOption FFMPEG_OPTS_SHARED "--enable-libsvthevc"
         enabled libsvtav1 || do_removeOption FFMPEG_OPTS_SHARED "--enable-libsvtav1"
         enabled libsvtvp9 || do_removeOption FFMPEG_OPTS_SHARED "--enable-libsvtvp9"
